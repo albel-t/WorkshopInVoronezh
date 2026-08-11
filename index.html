@@ -6,17 +6,124 @@
     <title>Слайдер обуви</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
-<body>
-    <div class="slider-container">
-        <div class="slider-wrapper" id="sliderWrapper"></div>
-        
-        <button class="arrow arrow-left" id="prevBtn">‹</button>
-        <button class="arrow arrow-right" id="nextBtn">›</button>
-        
-        <div class="dots-container" id="dotsContainer"></div>
-    </div>
+<body class = "vertical-stack">
+    <header class = "vertical-stack">
+        <div class = "center-items">
+            <h1>
+                Мастерская
+            </h1>
+        </div>
+
+        <div class="responsive-stack center-items">
+            <div class="center-items">
+                <img src="static/img/header/jawel-man.jpg" alt= "мастер ювелир">
+            </div>
+            <div class="vertical-stack header-description"> 
+                очень трогательная речь
+
+                Мы используем исключительно ручной труд в работе с вашими любимыми изделиями в комплекте с высококачественными
+и дорогими материалами.
+
+Секрет хорошего результата нашей команды заключается в том, что работа для мастеров Relux - это не банальное стремление получения финансовой выгоды, это любимое дело, к которому они
+относятся с искреннем фанатизмом.
+
+С любовью и трепетом подходим к каждому изделию, бережно вкладывая в него частичку своей души.
+Это и есть залог высокого качества наших работ.
+Мы беремся за изделия разной сложности для того, чтобы
+Ваши любимые вещи снова приобрели былую красоту.
+            </div>
+            <div class="center-items">
+                <img src="static/img/header/shoe-man.jpg" alt="мастер сапожник">
+            </div>
+        </div>
+
+
+    </header>
+    <section>
+        <div class="slider-container">
+            <div class="slider-wrapper" id="sliderWrapper"></div>
+            
+            <button class="arrow arrow-left" id="prevBtn">‹</button>
+            <button class="arrow arrow-right" id="nextBtn">›</button>
+
+            <div class="dots-container" id="dotsContainer"></div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <!-- Главные вкладки -->
+            <div class="tabs">
+                <div class="tab-header">
+                    <button class="tab-btn active" data-tab="watches">Часы</button>
+                    <button class="tab-btn" data-tab="jewelry">Ювелирка</button>
+                    <button class="tab-btn" data-tab="shoes">Обувь</button>
+                </div>
+                <div class="tab-content">
+                    <!-- Содержимое вкладки "Часы" -->
+                    <div class="tab-panel active" id="watches">
+                        <h2>Часы</h2>
+                        <p>Содержимое вкладки "Часы"</p>
+                        <p>Здесь может быть информация о часах</p>
+                    </div>
+                    
+                    <!-- Содержимое вкладки "Ювелирка" с вложенными вкладками -->
+                    <div class="tab-panel" id="jewelry">
+                        <h2>Ювелирка</h2>
+                        <!-- Вложенные вкладки -->
+                        <div class="tabs sub-tabs">
+                            <div class="tab-header">
+                                <button class="tab-btn active" data-tab="repair">Ремонт</button>
+                                <button class="tab-btn" data-tab="manufacturing">Изготовление</button>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-panel active" id="repair">
+                                    <h3>Ремонт ювелирных изделий</h3>
+                                    <p>Информация о ремонте ювелирных изделий</p>
+                                    <ul>
+                                        <li>Ремонт цепочек</li>
+                                        <li>Ремонт колец</li>
+                                        <li>Ремонт сережек</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-panel" id="manufacturing">
+                                    <h3>Изготовление ювелирных изделий</h3>
+                                    <p>Информация об изготовлении ювелирных изделий</p>
+                                    <ul>
+                                        <li>Изготовление на заказ</li>
+                                        <li>Дизайн украшений</li>
+                                        <li>Работа с драгоценными камнями</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Содержимое вкладки "Обувь" -->
+                    <div class="tab-panel" id="shoes">
+                        <h2>Обувь</h2>
+                        <p>Содержимое вкладки "Обувь"</p>
+                        <p>Здесь может быть информация об обуви</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div style="position:relative;overflow:hidden;">
+            <a href="https://yandex.ru/maps/org/remont_chasov/76167558262/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">
+                Мастерская
+            </a>
+            <a href="https://yandex.ru/maps/193/voronezh/category/clock_and_watch_repair/184108239/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">
+                Мастерская Воронеже
+            </a>
+            <iframe src="https://yandex.ru/map-widget/v1/?ll=39.191023%2C51.667759&mode=poi&poi%5Bpoint%5D=39.191039%2C51.667905&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D76167558262&z=21" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;">
+            </iframe>
+        </div>
+    </section>
 
     <!-- ПРАВИЛЬНЫЙ ПУТЬ к JS -->
     <script src="js/script.js"></script>
 </body>
+
+
 </html>

@@ -4,7 +4,8 @@
     const IMAGE_FILES = [
         'shoe1.jpg',
         'shoe2.jpg',
-        'shoe3.jpg'
+        'shoe3.jpg',
+        'shoe4.jpg'
     ];
     // =========================
 
@@ -145,5 +146,48 @@
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
+    }
+})();
+(function() {
+    // Функция для работы вкладок
+    function initTabs(container) {
+        const tabHeaders = container.querySelectorAll('.tab-header');
+        
+        tabHeaders.forEach(header => {
+            const buttons = header.querySelectorAll('.tab-btn');
+            const parentTabs = header.closest('.tabs');
+            const panels = parentTabs.querySelectorAll('.tab-panel');
+            
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // Убираем активный класс у всех кнопок в этом заголовке
+                    buttons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Показываем нужную панель
+                    const tabId = this.dataset.tab;
+                    panels.forEach(panel => {
+                        if (panel.id === tabId) {
+                            panel.classList.add('active');
+                        } else {
+                            panel.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    }
+
+    // Инициализация после загрузки DOM
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            const containers = document.querySelectorAll('.tabs');
+            containers.forEach(container => initTabs(container));
+        });
+    } else {
+        const containers = document.querySelectorAll('.tabs');
+        containers.forEach(container => initTabs(container));
     }
 })();
