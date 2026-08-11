@@ -21,6 +21,7 @@ body {
     overflow: hidden;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     background: #fff;
+    min-height: 400px;
 }
 
 .slider-wrapper {
@@ -43,6 +44,13 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.slide .error-text {
+    font-size: 1.2rem;
+    color: #e74c3c;
+    text-align: center;
+    padding: 20px;
 }
 
 .arrow {
@@ -124,6 +132,7 @@ body {
     .slider-container {
         width: 95%;
         border-radius: 12px;
+        min-height: 260px;
     }
     .slide {
         height: 260px;

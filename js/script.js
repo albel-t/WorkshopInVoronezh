@@ -1,16 +1,15 @@
 (function() {
-    // ---------- НАСТРОЙКИ ----------
+    // ===== ВАШИ КАРТИНКИ =====
     const IMAGE_FOLDER = 'static/img/shoes/show/';
     const IMAGE_FILES = [
         'shoe1.jpg',
         'shoe2.jpg',
-        'shoe3.jpg',
-        'boots4.jpg',
-        'sneakers5.jpg'
+        'shoe3.jpg'
     ];
-    const INTERVAL_MS = 1000;
+    // =========================
 
-    // ---------- ЭЛЕМЕНТЫ DOM ----------
+    const INTERVAL_MS = 5000;
+    
     const sliderWrapper = document.getElementById('sliderWrapper');
     const dotsContainer = document.getElementById('dotsContainer');
     const prevBtn = document.getElementById('prevBtn');
@@ -20,54 +19,48 @@
     let autoSlideInterval = null;
     const totalSlides = IMAGE_FILES.length;
 
-    // ---------- СОЗДАНИЕ СЛАЙДОВ ----------
     function buildSlides() {
         sliderWrapper.innerHTML = '';
         dotsContainer.innerHTML = '';
 
         if (totalSlides === 0) {
-            sliderWrapper.innerHTML = '<div class="slide"><div class="placeholder">Нет картинок</div></div>';
+            sliderWrapper.innerHTML = '<div class="slide"><div class="error-text">❌ Нет картинок</div></div>';
             return;
         }
 
         IMAGE_FILES.forEach((filename, index) => {
-            // Создаём слайд
             const slideDiv = document.createElement('div');
             slideDiv.className = 'slide';
             
             const img = document.createElement('img');
             const fullPath = IMAGE_FOLDER + filename;
             img.src = fullPath;
-            img.alt = `Обувь ${index + 1}`;
+            img.alt = `Фото ${index + 1}`;
             img.loading = 'lazy';
             
-            // Обработчик ошибки загрузки
             img.onerror = function() {
-                console.error(`❌ Не удалось загрузить: ${fullPath}`);
+                console.error(`❌ Не найдена: ${fullPath}`);
                 this.style.display = 'none';
-                const placeholder = document.createElement('div');
-                placeholder.className = 'placeholder';
-                placeholder.textContent = `❌ ${filename}`;
-                slideDiv.appendChild(placeholder);
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-text';
+                errorDiv.textContent = `❌ ${filename}`;
+                slideDiv.appendChild(errorDiv);
             };
             
             img.onload = function() {
-                console.log(`✅ Загружено: ${fullPath}`);
+                console.log(`✅ Загружена: ${fullPath}`);
             };
             
             slideDiv.appendChild(img);
             sliderWrapper.appendChild(slideDiv);
 
-            // Создаём точку
             const dot = document.createElement('button');
             dot.className = 'dot' + (index === 0 ? ' active' : '');
             dot.dataset.index = index;
-            dot.setAttribute('aria-label', `Слайд ${index + 1}`);
             dotsContainer.appendChild(dot);
         });
     }
 
-    // ---------- ПЕРЕКЛЮЧЕНИЕ ----------
     function goToSlide(index) {
         if (totalSlides === 0) return;
         if (index < 0) index = totalSlides - 1;
@@ -99,18 +92,15 @@
         }
     }
 
-    // ---------- ИНИЦИАЛИЗАЦИЯ ----------
     function init() {
-        console.log('🚀 Слайдер инициализирован');
-        console.log(`📁 Папка: ${IMAGE_FOLDER}`);
-        console.log(`📄 Файлы:`, IMAGE_FILES);
+        console.log('📁 Папка с картинками:', IMAGE_FOLDER);
+        console.log('📄 Файлы:', IMAGE_FILES);
         
         buildSlides();
         
         if (totalSlides > 0) {
             goToSlide(0);
 
-            // События
             prevBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 prevSlide();
@@ -147,28 +137,8 @@
                 }
             });
 
-            container.addEventListener('touchstart', () => {
-                if (autoSlideInterval) {
-                    clearInterval(autoSlideInterval);
-                    autoSlideInterval = null;
-                }
-            });
-
-            container.addEventListener('touchend', () => {
-                if (!autoSlideInterval && totalSlides > 1) {
-                    autoSlideInterval = setInterval(nextSlide, INTERVAL_MS);
-                }
-            });
-
             resetAutoSlide();
         }
-
-        window.addEventListener('beforeunload', () => {
-            if (autoSlideInterval) {
-                clearInterval(autoSlideInterval);
-                autoSlideInterval = null;
-            }
-        });
     }
 
     if (document.readyState === 'loading') {
