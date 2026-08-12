@@ -7,8 +7,10 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open index.html",
-            "file": "D:\\projects\\VisualStudioCode\\WorkshopInVoronezh\\index.html"
+            "name": "Open Site",
+            "file": "D:\\projects\\VisualStudioCode\\WorkshopInVoronezh\\index.html",
+            "preLaunchTask": "increment-version"
+
         }
     ]
 }
