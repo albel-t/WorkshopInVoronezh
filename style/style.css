@@ -501,7 +501,10 @@ section .card {
     text-align: center;
     margin-bottom: 30px;
 }
+.contacts {
+    padding: 12px 1px;
 
+}
 .contact-value {
     font-size: 1rem;
     color: #333;
