@@ -65,20 +65,10 @@
                                 <div class="tab-panel active" id="repair">
                                     <h3>Ремонт ювелирных изделий</h3>
                                     <p>Информация о ремонте ювелирных изделий</p>
-                                    <ul>
-                                        <li>Ремонт цепочек</li>
-                                        <li>Ремонт колец</li>
-                                        <li>Ремонт сережек</li>
-                                    </ul>
                                 </div>
                                 <div class="tab-panel" id="manufacturing">
                                     <h3>Изготовление ювелирных изделий</h3>
                                     <p>Информация об изготовлении ювелирных изделий</p>
-                                    <ul>
-                                        <li>Изготовление на заказ</li>
-                                        <li>Дизайн украшений</li>
-                                        <li>Работа с драгоценными камнями</li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -163,19 +153,32 @@
 
     <script src="js/script.js"></script>
 
-    <footer>
-        <a href="about.html" id="version-link" style="text-decoration: none; color: inherit; cursor: default;">
-            <span id="version">Версия: ...</span>
-        </a>
-    </footer>
-    
-    <script src="js/version.js"></script>
-    <script>
-        const versionSpan = document.getElementById('version');
-        const versionLink = document.getElementById('version-link');
-        versionSpan.textContent = 'Версия: ' + SITE_VERSION;
-        
 
-    </script>
+    <div class="vertical-stack header-description">
+        <p> Текст из описания в заголовке</p>
+    </div>
+    <h1>    Заголовок</h1>
+    <li class="footnote-star footnote-text"> Сноска со звездочкой </li>    
+    <div class="contacts">
+            <h2>Контакты - заголовок</h2>
+    </div>
+
+    <span class="contact-label">Контакты - предисловие</span>
+    <span class="contact-value">Контакты - информация</span>
+    <a href="testpage.html"  class="address-link"> Ссылка</a>
+
+    <div class="tabs">
+        <div class="tab-header">
+            <button class="tab-btn active" data-tab="watches">Активная вкладка</button>
+        </div>
+    </div>
+
+    <div class="tabs sub-tabs">
+        <div class="tab-header">
+            <button class="tab-btn active" data-tab="repair">Активная подвкладка</button>
+        </div>
+    </div>
+
+
 </body>
 </html>

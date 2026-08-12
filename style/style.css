@@ -316,6 +316,26 @@ section .card {
     padding: 10px 0;
 }
 
+/* ===== сноски ===== */
+.footnote-text {
+    color: #2c3e50;
+    font-size: 16px;
+}
+.footnote-star {
+    list-style: none;
+    position: relative;
+    padding-left: 25px;
+}
+
+.footnote-star::before {
+    content: "✱";
+    position: absolute;
+    left: 0;
+    color: #919296;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
 /* ===== КАРТА ===== */
 .map-wrapper {
     width: 100%;
@@ -536,4 +556,35 @@ section .card {
     .contact-value {
         font-size: 0.9rem;
     }
+}
+
+
+.address-label {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.address h2 {
+    color: #333;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.address {
+    padding: 12px 1px 30px 1px;
+    display: flex;
+    justify-content: center;  /* Горизонтальное центрирование */
+    align-items: center;      /* Вертикальное центрирование (опционально) */
+    gap: 20px;                /* Расстояние между элементами */
+    flex-wrap: wrap;          /* Перенос на новую строку, если не помещаются */
+}
+.address-info {
+    margin: 0 auto;
+}
+.address-value {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
 }
