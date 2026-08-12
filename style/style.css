@@ -530,6 +530,11 @@ section .card {
     color: #333;
     font-weight: 500;
 }
+.graphick-text{
+    text-align: center;
+    font-size: 20px;
+
+}
 
 /* Адаптив */
 @media (max-width: 600px) {

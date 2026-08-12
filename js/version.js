@@ -1,4 +1,5 @@
-﻿const SITE_VERSION = '2.5.0';
+﻿const SITE_VERSION = '3.0.1';
+
 
 
 
