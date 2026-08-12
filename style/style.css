@@ -3,46 +3,75 @@
     margin: 0;
     padding: 0;
 }
-header{
-    padding:10% 15%;
 
-}
-header img {
-    width: 100%;
-    max-width: 60%;
-    height: auto;
-    flex-shrink: 1;
-
-}
-
+/* ===== ОБЩИЕ СТИЛИ ===== */
 body {
-    width: 100%; /* ← Добавить */
-
+    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     margin: 0 auto;
     max-width: 1400px;
     min-height: 100vh;
     background: #f0f2f5;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    gap: 30px;
 }
-section {
-    padding: 10% 20%;
+
+/* ===== ОБЩИЙ БЛОК (без тени) ===== */
+.card {
     width: 100%;
-    display: flex;           /* ← Добавить */
-    justify-content: center; /* ← Добавить */
-    box-sizing: border-box;  /* ← Чтобы padding не увеличивал ширину */
+    max-width: 900px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-sizing: border-box;
 }
+
+/* ===== HEADER ===== */
+
+
+header.card {
+    padding: 30px;
+}
+
+header img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 1;
+    border-radius: 12px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* ===== СЕКЦИИ ===== */
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+section .card {
+    max-width: 900px;
+}
+
+/* ===== СЛАЙДЕР (ТОЛЬКО ЗДЕСЬ ТЕНЬ!) ===== */
 .slider-container {
     position: relative;
     width: 100%;
-    max-width: 800px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     background: #fff;
     min-height: 400px;
+    /* 👇 ТОЛЬКО ЗДЕСЬ ТЕНЬ */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .slider-wrapper {
@@ -74,6 +103,7 @@ section {
     padding: 20px;
 }
 
+/* ===== СТРЕЛКИ СЛАЙДЕРА ===== */
 .arrow {
     position: absolute;
     top: 50%;
@@ -114,6 +144,7 @@ section {
     right: 16px;
 }
 
+/* ===== ТОЧКИ СЛАЙДЕРА ===== */
 .dots-container {
     position: absolute;
     bottom: 18px;
@@ -148,84 +179,38 @@ section {
 .dot:hover {
     background: rgba(255, 255, 255, 0.9);
 }
+
+/* ===== ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ ===== */
 .responsive-stack {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
+
 .center-items {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.vertical-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .header-description {
     width: 100%;
-    max-width: 50%;
+    max-width: 80%;
     height: auto;
     flex-shrink: 1;
-}
-@media (min-width: 801px) {
-    .responsive-stack {
-        flex-direction: row;
-    }
-    .header-description {
-        width: 100%;
-        max-width: 90%;
-        height: auto;
-        flex-shrink: 1;
-    }
-    header{
-        padding: 3% 10%;
-    
-    }
-    section {
-        padding: 3% 10%;
-    
-    }
-}
-@media (max-width: 600px) {
-    .slider-container {
-        width: 95%;
-        border-radius: 12px;
-        min-height: 260px;
-    }
-    .slide {
-        height: 260px;
-    }
-    .arrow {
-        width: 38px;
-        height: 38px;
-        font-size: 20px;
-    }
-    .arrow-left {
-        left: 8px;
-    }
-    .arrow-right {
-        right: 8px;
-    }
-    .dots-container {
-        gap: 8px;
-        padding: 6px 12px;
-        bottom: 12px;
-    }
-    .dot {
-        width: 12px;
-        height: 12px;
-    }
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    text-align: center;
 }
 
-
-.container {
-    width: 100%;
-    max-width: 900px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    padding: 30px;
-    min-height: 600px;
-    
-}
-
-/* Стили для вкладок */
+/* ===== ВКЛАДКИ ===== */
 .tabs {
     width: 100%;
 }
@@ -309,7 +294,7 @@ section {
     left: 0;
 }
 
-/* Вложенные вкладки (суб-вкладки) */
+/* Вложенные вкладки */
 .sub-tabs .tab-header {
     border-bottom-color: #d0d0d0;
     margin-bottom: 10px;
@@ -331,7 +316,21 @@ section {
     padding: 10px 0;
 }
 
-/* Анимация появления */
+/* ===== КАРТА ===== */
+.map-wrapper {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    display: block;
+}
+
+/* ===== АНИМАЦИЯ ===== */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -343,10 +342,69 @@ section {
     }
 }
 
-/* Адаптив */
+/* ===== АДАПТИВ ===== */
+@media (min-width: 801px) {
+    .responsive-stack {
+        flex-direction: row;
+        gap: 30px;
+    }
+    .header-description {
+        max-width: 60%;
+    }
+    header.card {
+        padding: 40px 50px;
+    }
+    .card {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 800px) {
+    .card {
+        padding: 20px;
+    }
+    header.card {
+        padding: 20px;
+    }
+    .header-description {
+        max-width: 100%;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
 @media (max-width: 600px) {
-    .container {
+    .slider-container {
+        border-radius: 16px;
+        min-height: 260px;
+    }
+    .slide {
+        height: 260px;
+    }
+    .arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+    }
+    .arrow-left {
+        left: 8px;
+    }
+    .arrow-right {
+        right: 8px;
+    }
+    .dots-container {
+        gap: 8px;
+        padding: 6px 12px;
+        bottom: 12px;
+    }
+    .dot {
+        width: 12px;
+        height: 12px;
+    }
+    .card {
         padding: 15px;
+        border-radius: 16px;
     }
     .tab-btn {
         padding: 10px 16px;
@@ -359,8 +417,120 @@ section {
         font-size: 12px;
         padding: 6px 12px;
     }
+    .map-wrapper iframe {
+        height: 300px;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
 }
-.vertical-stack {
+
+/* ===== КАРТА ===== */
+.map-wrapper {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 1 / 1; /* Соотношение сторон 1:1 (квадрат) */
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* ===== КОНТАКТЫ ===== */
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.contact-item:hover {
+    background: #ffffff;
+    border-color: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.15);
+}
+
+.contact-icon {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.contact-info {
     display: flex;
     flex-direction: column;
+    gap: 2px;
+}
+
+.contact-label {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contacts h2 {
+    color: #333;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-value {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+    .contacts h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .contacts-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .contact-item {
+        padding: 12px 15px;
+    }
+    
+    .contact-icon {
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .contact-value {
+        font-size: 0.9rem;
+    }
 }

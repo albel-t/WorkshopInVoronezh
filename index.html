@@ -6,52 +6,43 @@
     <title>Слайдер обуви</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
-<body class = "vertical-stack">
-    <header class = "vertical-stack">
-        <div class = "center-items">
-            <h1>
-                Мастерская
-            </h1>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="card vertical-stack">
+        <div class="center-items">
+            <h1>Мастерская</h1>
         </div>
 
         <div class="responsive-stack center-items">
             <div class="center-items">
-                <img src="static/img/header/jawel-man.jpg" alt= "мастер ювелир">
+                <img src="static/img/header/jawel-man.jpg" alt="мастер ювелир">
             </div>
-            <div class="vertical-stack header-description"> 
-                очень трогательная речь
-
-                Мы используем исключительно ручной труд в работе с вашими любимыми изделиями в комплекте с высококачественными
-и дорогими материалами.
-
-Секрет хорошего результата нашей команды заключается в том, что работа для мастеров Relux - это не банальное стремление получения финансовой выгоды, это любимое дело, к которому они
-относятся с искреннем фанатизмом.
-
-С любовью и трепетом подходим к каждому изделию, бережно вкладывая в него частичку своей души.
-Это и есть залог высокого качества наших работ.
-Мы беремся за изделия разной сложности для того, чтобы
-Ваши любимые вещи снова приобрели былую красоту.
+            <div class="vertical-stack header-description">
+                <p>Мы используем исключительно ручной труд в работе с вашими любимыми изделиями в комплекте с высококачественными и дорогими материалами.</p>
+                <p>Секрет хорошего результата нашей команды заключается в том, что работа для мастеров Relux - это не банальное стремление получения финансовой выгоды, это любимое дело, к которому они относятся с искреннем фанатизмом.</p>
+                <p>С любовью и трепетом подходим к каждому изделию, бережно вкладывая в него частичку своей души. Это и есть залог высокого качества наших работ. Мы беремся за изделия разной сложности для того, чтобы Ваши любимые вещи снова приобрели былую красоту.</p>
             </div>
             <div class="center-items">
                 <img src="static/img/header/shoe-man.jpg" alt="мастер сапожник">
             </div>
         </div>
-
-
     </header>
-    <section>
-        <div class="slider-container">
-            <div class="slider-wrapper" id="sliderWrapper"></div>
-            
-            <button class="arrow arrow-left" id="prevBtn">‹</button>
-            <button class="arrow arrow-right" id="nextBtn">›</button>
 
-            <div class="dots-container" id="dotsContainer"></div>
+    <!-- ===== СЛАЙДЕР ===== -->
+    <section>
+        <div class="card">
+            <div class="slider-container">
+                <div class="slider-wrapper" id="sliderWrapper"></div>
+                <button class="arrow arrow-left" id="prevBtn">‹</button>
+                <button class="arrow arrow-right" id="nextBtn">›</button>
+                <div class="dots-container" id="dotsContainer"></div>
+            </div>
         </div>
     </section>
+
+    <!-- ===== ВКЛАДКИ ===== -->
     <section>
-        <div class="container">
-            <!-- Главные вкладки -->
+        <div class="card">
             <div class="tabs">
                 <div class="tab-header">
                     <button class="tab-btn active" data-tab="watches">Часы</button>
@@ -59,17 +50,13 @@
                     <button class="tab-btn" data-tab="shoes">Обувь</button>
                 </div>
                 <div class="tab-content">
-                    <!-- Содержимое вкладки "Часы" -->
                     <div class="tab-panel active" id="watches">
                         <h2>Часы</h2>
                         <p>Содержимое вкладки "Часы"</p>
                         <p>Здесь может быть информация о часах</p>
                     </div>
-                    
-                    <!-- Содержимое вкладки "Ювелирка" с вложенными вкладками -->
                     <div class="tab-panel" id="jewelry">
                         <h2>Ювелирка</h2>
-                        <!-- Вложенные вкладки -->
                         <div class="tabs sub-tabs">
                             <div class="tab-header">
                                 <button class="tab-btn active" data-tab="repair">Ремонт</button>
@@ -97,8 +84,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Содержимое вкладки "Обувь" -->
                     <div class="tab-panel" id="shoes">
                         <h2>Обувь</h2>
                         <p>Содержимое вкладки "Обувь"</p>
@@ -108,22 +93,66 @@
             </div>
         </div>
     </section>
+    <!-- ===== КОНТАКТЫ ===== -->
     <section>
-        <div style="position:relative;overflow:hidden;">
-            <a href="https://yandex.ru/maps/org/remont_chasov/76167558262/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">
-                Мастерская
-            </a>
-            <a href="https://yandex.ru/maps/193/voronezh/category/clock_and_watch_repair/184108239/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">
-                Мастерская Воронеже
-            </a>
-            <iframe src="https://yandex.ru/map-widget/v1/?ll=39.191023%2C51.667759&mode=poi&poi%5Bpoint%5D=39.191039%2C51.667905&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D76167558262&z=21" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;">
-            </iframe>
+        <div class="card">
+            <div class="contacts">
+                <div class="contacts-list">  
+                    <div>
+                        <h2 class="contact-label">Контакты</h2>
+                    </div>
+                    <div>
+                        <span class="contact-label">Телефон:</span>
+                        <a href="tel:+79001234567" class="contact-link">+7 (900) 123-45-67</a>
+                    </div>
+                    <div>
+                        <span class="contact-label">Email:</span>
+                        <a href="mailto:info@master.ru" class="contact-link">info@master.ru</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts">
+                <h2>СОЦСЕТИ</h2>
+                <div class="contacts-grid">
+                    <!-- Telegram -->
+                    <a href="https://t.me/your_username" target="_blank" class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-info">
+                            <span class="contact-label">Telegram</span>
+                            <span class="contact-value">@your_username</span>
+                        </div>
+                    </a>
+                    
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/79001234567" target="_blank" class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-info">
+                            <span class="contact-label">WhatsApp</span>
+                            <span class="contact-value">Написать в WhatsApp</span>
+                        </div>
+                    </a>
+                    
+                    <!-- VK -->
+                    <a href="https://vk.com/your_group" target="_blank" class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-info">
+                            <span class="contact-label">ВКонтакте</span>
+                            <span class="contact-value">vk.com/your_group</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===== КАРТА ===== -->
+    <section>
+        <div class="card">
+            <div class="map-wrapper">
+                <iframe src="https://yandex.ru/map-widget/v1/?ll=39.191086%2C51.667693&mode=poi&poi%5Bpoint%5D=39.191082%2C51.667895&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D88310254451&z=19.6" allowfullscreen="true"></iframe>
+            </div>
         </div>
     </section>
 
-    <!-- ПРАВИЛЬНЫЙ ПУТЬ к JS -->
     <script src="js/script.js"></script>
 </body>
-
-
 </html>
