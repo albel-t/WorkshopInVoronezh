@@ -204,7 +204,7 @@ section .card {
     max-width: 80%;
     height: auto;
     flex-shrink: 1;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     color: #444;
     text-align: center;
@@ -622,6 +622,8 @@ section .card {
     padding: 10px 16px;
     border-bottom: 1px solid #e0e0e0;
     font-size: 15px;
+    white-space: normal;
+
   }
   tr:last-child td {
     border-bottom: none;
@@ -630,7 +632,35 @@ section .card {
     background: #f9f9f9;
   }
   .price {
-    white-space: nowrap;
     font-weight: 600;
     color: #1a1a2e;
   }
+
+  @font-face {
+    font-family: 'Font_Ankona';
+    src: url('../static/fonts/Ankona Kursive.ttf') format('truetype');
+    font-display: swap;
+}
+.font-Font_Ankona {
+    font-family: 'Font_Ankona', Arial, sans-serif;
+}
+
+   @font-face { font-family: 'Font_Boingster'; src: url('../static/fonts/Boingster-Regular.ttf') format('truetype'); font-display: swap; }
+   .font-Font_Boingster { font-family: 'Font_Boingster', Arial, sans-serif; }
+   
+   @font-face { font-family: 'Font_Broadsheet'; src: url('../static/fonts/Broadsheet.ttf') format('truetype'); font-display: swap; }
+   .font-Font_Broadsheet { font-family: 'Font_Broadsheet', Arial, sans-serif; }
+   
+   @font-face { font-family: 'Font_BulbasaurSP'; src: url('../static/fonts/BulbasaurSP.otf') format('opentype'); font-display: swap; }
+   .font-Font_BulbasaurSP { font-family: 'Font_BulbasaurSP', Arial, sans-serif; }
+   
+   @font-face { font-family: 'Font_EternaOldstyle'; src: url('../static/fonts/Eterna Oldstyle.ttf') format('truetype'); font-display: swap; }
+   .font-Font_EternaOldstyle { font-family: 'Font_EternaOldstyle', Arial, sans-serif; }
+   
+   @font-face { font-family: 'Font_IceAgeSHA'; src: url('../static/fonts/Ice_Age_SHA.otf') format('opentype'); font-display: swap; }
+   .font-Font_IceAgeSHA { font-family: 'Font_IceAgeSHA', Arial, sans-serif; }
+   
+   @font-face { font-family: 'Font_LeonovSP'; src: url('../static/fonts/LeonovSP.otf') format('opentype'); font-display: swap; }
+   .font-Font_LeonovSP { font-family: 'Font_LeonovSP', Arial, sans-serif; }
+   
+
