@@ -1,4 +1,4 @@
-﻿const SITE_VERSION = '3.11.4';
+﻿const SITE_VERSION = '3.12.0';
 
 
 
