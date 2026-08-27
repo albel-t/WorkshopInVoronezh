@@ -680,3 +680,14 @@ section .card {
    .font-Font_LeonovSP { font-family: 'Font_LeonovSP', Arial, sans-serif; }
    
 
+   .dynamic-bg {
+    background: linear-gradient(135deg, #ffffff, #c3c3ec);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(24, 3, 3);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+}
