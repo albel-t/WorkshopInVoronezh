@@ -48,8 +48,47 @@ header h1 {
     font-size: 2.5rem;
     color: #333;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+header h1::before, 
+.header-pre-description::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    left: -10px;
+    right: -10px;
+    
+    background-color: rgba(255, 255, 255, 0.45); /* Белый полупрозрачный фон */
+    
+    backdrop-filter: blur(5px); /* Размытие фона сзади */
+    -webkit-backdrop-filter: blur(5px);
+    
+    /* Мягкие растворяющиеся края */
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 95%);
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 95%);
+    
+    z-index: -1; /* Прячем пелену за текст */
+    border-radius: 20px;
+    pointer-events: none;
 }
 
+/* Корректировка для мобильных, чтобы отступы не ломали верстку */
+@media (max-width: 800px) {
+    header h1, 
+    .header-pre-description {
+        padding: 8px 10px !important;
+    }
+    
+    header h1::before, 
+    .header-pre-description::before {
+        left: -5px;
+        right: -5px;
+        top: -2px;
+        bottom: -2px;
+    }
+}
 /* ===== СЕКЦИИ ===== */
 section {
     width: 100%;
@@ -200,6 +239,8 @@ section .card {
 }
 
 .header-pre-description {
+    position: relative;
+    z-index: 1;
     width: 100%;
     max-width: 100%;
     height: auto;
@@ -209,7 +250,46 @@ section .card {
     color: #444;
     text-align: center;
 }
+.header-description::before {
+    content: "";
+    position: absolute;
+    /* Чуть выходим за пределы текста, чтобы размытие было красивым */
+    top: -10px;
+    bottom: -10px;
+    left: -20px;
+    right: -20px;
+    
+    /* Полупрозрачный белый фон (0.75 = 75% непрозрачности) */
+    background-color: rgba(255, 255, 255, 0.45);
+    
+    /* Размытие фона позади текста */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px); /* Для Safari */
+    
+    /* Мягкие растворяющиеся края (радиальный градиент) */
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 95%);
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 95%);
+    
+    z-index: -1; /* Прячем пелену за текст */
+    border-radius: 30px;
+    pointer-events: none; /* Чтобы пелена не мешала кликам */
+}
+
+/* На мобильных делаем пелену чуть плотнее и уменьшаем отступы, чтобы не съедала экран */
+@media (max-width: 800px) {
+    .header-description {
+        padding: 15px 10px !important;
+    }
+    .header-description::before {
+        left: -10px;
+        right: -10px;
+        top: -5px;
+        bottom: -5px;
+    }
+}
 .header-description {
+    position: relative;
+    z-index: 1;
     width: 100%;
     max-width: 80%;
     height: auto;
@@ -405,8 +485,82 @@ section .card {
         font-size: 2rem;
     }
 }
-
+/* ===== ЖЕСТКОЕ ИСПРАВЛЕНИЕ ДЛЯ МОБИЛЬНЫХ (340px и около) ===== */
 @media (max-width: 600px) {
+    /* 1. Убираем любые отступы у body, которые могут создавать ширину */
+    body {
+        padding: 5px !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 2. Карточки должны занимать ровно 100% ширины экрана минус отступы */
+    .card, header.card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 10px !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Контейнер таблицы не должен иметь внутренних отступов, съедающих место */
+    .table-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important; /* Прячем всё, что вылезает */
+        box-sizing: border-box !important;
+    }
+
+    /* 4. Убиваем фиксированную ширину таблицы */
+    table {
+        width: 100% !important;
+        min-width: 0 !important; /* Важно! */
+        table-layout: fixed !important;
+        border-collapse: collapse !important;
+    }
+
+    /* 5. Заставляем ячейки сжиматься и переносить текст */
+    th, td {
+        padding: 6px 4px !important;
+        font-size: 12px !important;
+        word-break: break-word !important; /* Ломает длинные слова */
+        overflow-wrap: anywhere !important;
+        white-space: normal !important;
+        box-sizing: border-box !important;
+    }
+    td.price {
+        text-align: center !important;
+    }
+    th:last-child {
+        text-align: center !important;
+    }
+    /* Немного выравниваем заголовки */
+    th {
+        text-align: center !important;
+    }
+    
+    /* 6. Убираем скругления у заголовков таблицы, чтобы они не выпирали */
+    th {
+        border-radius: 8px !important; 
+    }
+}
+@media (max-width: 600px) {
+    .card {
+        padding: 10px; /* Уменьшаем внутренние отступы карточки */
+    }
+    
+    .table-container {
+        padding: 10px 5px; /* Уменьшаем отступы вокруг таблицы */
+    }
+    
+    /* Разрешаем тексту в таблице переноситься более агрессивно */
+    td, th {
+        font-size: 12px;
+        padding: 6px 4px;
+    }
     .slider-container {
         border-radius: 16px;
         min-height: 260px;
